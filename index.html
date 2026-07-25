@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codenames AI Competition - DCC WEEK</title>
-    <!-- Adição do Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
     
     <style>
@@ -32,7 +31,6 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            /* Faixa superior com o gradiente das cores da DCC Week */
             border-top: 8px solid;
             border-image: linear-gradient(to right, var(--pastel-red), var(--pastel-blue), var(--pastel-green)) 1;
         }
@@ -87,7 +85,6 @@
             text-decoration: underline;
         }
 
-        /* Destaques das seções usando as cores pastéis nas bordas esquerdas */
         .section-blue { border-left: 5px solid var(--pastel-blue); padding-left: 15px; margin-bottom: 30px; }
         .section-red { border-left: 5px solid var(--pastel-red); padding-left: 15px; margin-bottom: 30px; }
         .section-green { border-left: 5px solid var(--pastel-green); padding-left: 15px; margin-bottom: 30px; }
@@ -156,7 +153,7 @@
 
     <main>
         <section class="section-green">
-            <h2>Como funciona o Codenames</h2>
+            <h2>Como funciona o Codenames (Resumo)</h2>
             <p>O Codenames é um jogo de dedução e associação de palavras. No tabuleiro há 25 palavras distribuídas. As equipes (Vermelha e Azul) possuem dois papéis cada:</p>
             <ul>
                 <li><strong>Codemaster (Mestre Espião):</strong> Sabe exatamente a qual equipe cada palavra do tabuleiro pertence (além de cartas neutras e o Assassino). A função dele é dar uma dica de apenas <strong>uma palavra</strong> acompanhada de um número, conectando duas ou mais palavras do seu time (ex: <code>animal, 2</code>).</li>
@@ -167,10 +164,10 @@
 
         <section class="section-blue">
             <h2>Formato da Competição (Exclusivo DCC Week)</h2>
-            <p>Diferente do evento original, no DCC Week teremos <strong>apenas a modalidade Two Teams</strong>.</p>
+            <p>Diferente do evento original, no DCC Week teremos <strong>apenas a modalidade Two Teams</strong>. Os agentes se enfrentarão seguindo as regras originais de disputa direta (Equipe Vermelha vs. Equipe Azul). O torneio será dividido em duas etapas principais:</p>
             <ul>
-                <li><strong>Two Teams Track:</strong> Jogado sob as regras originais de disputa direta entre as duas equipes (Vermelha vs. Azul).</li>
-                <li><strong>Avaliação:</strong> O sucesso dos agentes será medido pela <strong>taxa geral de vitórias (win-rate)</strong> em um torneio contra as submissões de outras equipes.</li>
+                <li><strong>Primeira Fase (Round Robin):</strong> Ocorrerá em formato de pontos corridos ("todos contra todos"). O desempenho de cada equipe será medido pela sua <strong>taxa geral de vitórias (win-rate)</strong> em todas as partidas. Em caso de empate, um jogo extra será realizado para decidir. As 4 equipes com as melhores taxas de vitória avançam para a próxima fase.</li>
+                <li><strong>Segunda Fase (Mata-mata / Knockout):</strong> Um torneio de eliminação simples entre o Top 4. Os confrontos serão definidos por chaveamento (o 1º colocado enfrenta o 4º, e o 2º enfrenta o 3º). As partidas desta fase serão decididas em formato <strong>melhor de três (Best of 3)</strong>.</li>
             </ul>
         </section>
 
@@ -184,7 +181,7 @@
         </section>
 
         <section class="section-green">
-            <h2>Estrutura do Código e Requisitos</h2>
+            <h2>3. Estrutura do Código e Requisitos</h2>
             <p>Você deve desenvolver e submeter dois agentes funcionais em <strong>um único arquivo <code>.py</code></strong>, imitando os arquivos de exemplo do repositório.</p>
             
             <p><strong>Métodos obrigatórios para o Codemaster:</strong></p>
