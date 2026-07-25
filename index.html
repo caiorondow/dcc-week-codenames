@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codenames AI Competition - DCC WEEK</title>
+    <style>
+        :root {
+            /* Cores DCC Week (Pastéis) */
+            --pastel-red: #ffb3ba;
+            --pastel-blue: #bae1ff;
+            --pastel-green: #baffc9;
+            
+            /* Cores de Texto e Fundo */
+            --bg-color: #ffffff;
+            --text-main: #333333;
+            --text-muted: #555555;
+            --code-bg: #f4f5f7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            /* Faixa superior com o gradiente das cores da DCC Week */
+            border-top: 8px solid;
+            border-image: linear-gradient(to right, var(--pastel-red), var(--pastel-blue), var(--pastel-green)) 1;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Destaques das seções usando as cores pastéis nas bordas esquerdas */
+        .section-blue { border-left: 5px solid var(--pastel-blue); padding-left: 15px; margin-bottom: 30px; }
+        .section-red { border-left: 5px solid var(--pastel-red); padding-left: 15px; margin-bottom: 30px; }
+        .section-green { border-left: 5px solid var(--pastel-green); padding-left: 15px; margin-bottom: 30px; }
+
+        code {
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .alert-box {
+            background-color: #fff9e6;
+            border-left: 5px solid #ffcc00;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            background-color: var(--pastel-green);
+            color: #1a5c32;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #9ee6b1;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Codenames AI Competition (2026) - DCC WEEK</h1>
+        <p>Esta competição foca no desenvolvimento de agentes autônomos (IA) para jogar o jogo de tabuleiro "Codenames". O evento é uma adaptação local do desafio da IEEE CoG 2026.</p>
+        
+        <div class="alert-box">
+            <strong>Atenção:</strong> Como utilizamos o framework oficial, a documentação completa, regras detalhadas e exemplos de código encontram-se no repositório original: 
+            <a href="https://github.com/stepmat/Codenames_GPT" target="_blank">Codenames_GPT no GitHub</a>.
+        </div>
+    </header>
+
+    <main>
+        <section class="section-blue">
+            <h2>1. Formato da Competição (Exclusivo DCC Week)</h2>
+            <p>Diferente do evento original, no DCC Week teremos <strong>apenas a modalidade Two Teams</strong>.</p>
+            <ul>
+                <li><strong>Two Teams Track:</strong> Jogado sob as regras originais de disputa direta. Duas equipes (Vermelha e Azul) tentam identificar todas as palavras da sua cor primeiro, evitando as do adversário e a palavra do Assassino (que causa derrota imediata).</li>
+                <li><strong>Avaliação:</strong> O sucesso dos agentes será medido pela <strong>taxa geral de vitórias (win-rate)</strong> em um torneio contra as submissões de outras equipes.</li>
+            </ul>
+        </section>
+
+        <section class="section-red">
+            <h2>2. Regras de Dicas (Clues)</h2>
+            <p>Seus agentes (Codemaster e Guesser) devem respeitar estritamente o formato de dicas do Codenames:</p>
+            <ul>
+                <li><strong>Formato obrigatório:</strong> Uma única palavra em inglês + um número indicando a quantidade de cartas associadas (ex: <code>pebble, 2</code>). O número "0" pode ser usado para palpites ilimitados.</li>
+                <li><strong>Infrações (Desclassificação):</strong> Dicas que indiquem posição no tabuleiro (ex: "Quatro-Dois"), palavras compostas irregulares, erros propositais de ortografia ou derivações diretas das palavras visíveis.</li>
+            </ul>
+        </section>
+
+        <section class="section-green">
+            <h2>3. Estrutura do Código e Requisitos</h2>
+            <p>Você deve desenvolver e submeter dois agentes funcionais em <strong>um único arquivo <code>.py</code></strong>, imitando os arquivos de exemplo do repositório.</p>
+            
+            <p><strong>Métodos obrigatórios para o Codemaster:</strong></p>
+            <ul>
+                <li><code>__init__(self)</code></li>
+                <li><code>set_game_state(words_on_board: List[str], key_grid: List[str]) -> None</code></li>
+                <li><code>get_clue() -> Tuple[str, int]</code></li>
+            </ul>
+
+            <p><strong>Métodos obrigatórios para o Guesser:</strong></p>
+            <ul>
+                <li><code>__init__(self)</code></li>
+                <li><code>set_board(words: List[str]) -> None</code></li>
+                <li><code>set_clue(clue: str, num_guesses: int) -> None</code></li>
+                <li><code>keep_guessing() -> bool</code></li>
+                <li><code>get_answer() -> str</code></li>
+            </ul>
+
+            <p><em>(Dica: Ambas as classes podem usar <code>super().get_move_history()</code> para acessar o histórico de ações da partida).</em></p>
+
+            <p><strong>Regras de Desenvolvimento:</strong></p>
+            <ul>
+                <li><strong>Não modifique</strong> os arquivos base do framework original.</li>
+                <li><strong>Uso de IA:</strong> Permitido o uso de LLMs (GPT-4, Gemini, Llama, etc.) via API ou modelos locais, além de abordagens clássicas (word embeddings).</li>
+                <li><strong>Custos:</strong> O uso de APIs pagas é de total responsabilidade da equipe (vocês devem fornecer e gerenciar suas próprias chaves e créditos).</li>
+            </ul>
+        </section>
+
+        <section class="section-blue">
+            <h2>4. Instalação Básica e Teste</h2>
+            <p>Recomenda-se o uso do Anaconda para rodar o framework original:</p>
+            <pre><code>conda create --name codenames python=3.9
+conda activate codenames
+pip install -U colorama openai
+git clone https://github.com/stepmat/Codenames_GPT.git
+cd Codenames_GPT</code></pre>
+
+            <p>Para testar seus agentes localmente no terminal:</p>
+            <pre><code>python run_game.py seu_arquivo.SeuCodemasterRed seu_arquivo.SeuGuesserRed seu_arquivo.SeuCodemasterBlue seu_arquivo.SeuGuesserBlue --seed 3442</code></pre>
+        </section>
+
+        <section class="section-red" style="border-left-color: var(--pastel-red);">
+            <h2>5. Submissão e Inscrição</h2>
+            <p>Você deverá anexar no formulário de inscrição um arquivo <strong><code>.zip</code></strong> contendo:</p>
+            <ul>
+                <li><strong>O arquivo <code>.py</code></strong> com as classes do seu Codemaster e Guesser.</li>
+                <li><strong>Um arquivo <code>README</code></strong> especificando bibliotecas extras necessárias, instruções claras de execução e links para download de modelos locais (se houver).</li>
+            </ul>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://forms.gle/ak4MW6ZzEff5QdrL8" target="_blank" class="btn-submit">Realizar Inscrição no Google Forms</a>
+            </div>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>
