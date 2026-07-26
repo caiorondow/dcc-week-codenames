@@ -19,8 +19,8 @@
             --text-muted: #555555;
             --code-bg: #f4f5f7;
             
-            /* Cor solicitada para o rodapé */
-            --cinza-suvinil: #d1d5d6; 
+            /* Cor do rodapé (Cinza mais escuro) */
+            --cinza-escuro: #7a8285; 
         }
 
         * {
@@ -155,17 +155,19 @@
             text-decoration: none;
         }
 
-        /* Estilos do Rodapé */
+        /* Estilos do Rodapé Ajustados */
         footer {
-            background-color: var(--cinza-suvinil);
-            text-align: center;
-            padding: 40px 20px;
+            background-color: var(--cinza-escuro);
+            display: flex;
+            justify-content: flex-end; /* Alinha o conteúdo à direita */
+            align-items: center;
+            padding: 15px 40px; /* Padding reduzido para diminuir a altura */
             margin-top: auto;
             width: 100%;
         }
 
         .footer-logo {
-            max-height: 80px;
+            max-height: 50px; /* Altura do logo ligeiramente reduzida */
             object-fit: contain;
         }
     </style>
@@ -283,7 +285,7 @@ cd Codenames_GPT</code></pre>
     </main>
 </div>
 
-<!-- Rodapé exclusivo com fundo cinza e logo do DCC -->
+<!-- Rodapé menor, fundo mais escuro e logo à direita -->
 <footer>
     <img src="https://dcc.ufmg.br/wp-content/uploads/2020/12/logos_institucionais_dcc_fundo_escuro.png" alt="Logo DCC UFMG" class="footer-logo" onerror="this.src='dcc-logo.png'; this.alt='DCC Logo'">
 </footer>
