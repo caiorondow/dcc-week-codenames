@@ -29,6 +29,12 @@
             padding: 0;
         }
 
+        /* html e body atualizados para evitar bugs de largura no mobile */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
@@ -80,6 +86,7 @@
         p {
             margin-bottom: 15px;
             color: var(--text-muted);
+            word-wrap: break-word; /* Ajuda a não quebrar o layout no celular */
         }
 
         ul {
@@ -112,6 +119,7 @@
             padding: 2px 6px;
             border-radius: 4px;
             font-size: 0.9em;
+            word-wrap: break-word;
         }
 
         pre {
@@ -120,11 +128,13 @@
             border-radius: 6px;
             overflow-x: auto;
             margin-bottom: 20px;
+            max-width: 100%; /* Garante que o bloco não force a tela a crescer */
         }
 
         pre code {
             background-color: transparent;
             padding: 0;
+            white-space: pre-wrap; /* Força a quebra de linha do código em telas muito pequenas */
         }
 
         .alert-box {
@@ -155,19 +165,19 @@
             text-decoration: none;
         }
 
-        /* Estilos do Rodapé Ajustados */
+        /* Estilos do Rodapé Ajustados para Mobile */
         footer {
             background-color: var(--cinza-escuro);
             display: flex;
             justify-content: flex-end; /* Alinha o conteúdo à direita */
             align-items: center;
-            padding: 15px 40px; /* Padding reduzido para diminuir a altura */
+            padding: 15px 20px; /* Padding levemente reduzido para telas menores */
             margin-top: auto;
             width: 100%;
         }
 
         .footer-logo {
-            max-height: 50px; /* Altura do logo ligeiramente reduzida */
+            max-height: 50px; 
             object-fit: contain;
         }
     </style>
@@ -180,7 +190,10 @@
         <img src="https://github.com/user-attachments/assets/510cbaa5-a579-46a3-94c6-2cee11f60a7c" alt="Codenames AI Competition Banner" class="hero-image">
 
         <h1>Codenames AI Competition (2026) - DCC WEEK</h1>
-        <p>Seja bem-vindo à competição Codenames da DCC Week 2026. Esta competição visa o desenvolvimento de agentes autônomos (IA) capazes de compreender linguagem natural, criar comunicação semântica e entender os múltiplos significados das palavras. O grande vencedor levará um prêmio de uma bolsa de estudos!</p>
+        
+        <!-- Parágrafo de introdução atualizado e mais direto -->
+        <p>Seja bem-vindo à competição Codenames da DCC Week 2026. Esta competição visa a criação de dois agentes de IA, o codemaster e o guesser, para jogar o jogo Codenames. O grande vencedor levará um prêmio de uma bolsa de estudos!</p>
+        
         <p>Esta competição é uma adaptação local da competição original do desafio da <a href="https://cog2026.org/competitions#codenames" target="_blank">IEEE CoG 2026</a>.</p>
     </header>
 
@@ -285,7 +298,7 @@ cd Codenames_GPT</code></pre>
     </main>
 </div>
 
-<!-- Rodapé menor, fundo mais escuro e logo à direita -->
+<!-- Rodapé -->
 <footer>
     <img src="https://dcc.ufmg.br/wp-content/uploads/2020/12/logos_institucionais_dcc_fundo_escuro.png" alt="Logo DCC UFMG" class="footer-logo" onerror="this.src='dcc-logo.png'; this.alt='DCC Logo'">
 </footer>
