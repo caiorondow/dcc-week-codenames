@@ -29,9 +29,7 @@
             padding: 0;
         }
 
-        /* html e body atualizados para evitar bugs de largura no mobile */
         html, body {
-            overflow-x: hidden;
             width: 100%;
         }
 
@@ -48,10 +46,12 @@
         }
 
         .container {
+            width: 100%;
+            min-width: 0; /* CORREÇÃO CRÍTICA: Impede que blocos de código estiquem a tela no mobile */
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
-            flex: 1; /* Faz o container empurrar o footer para o final da página */
+            flex-grow: 1; /* Faz o container empurrar o footer para baixo */
         }
 
         /* Estilo da imagem no cabeçalho */
@@ -86,7 +86,7 @@
         p {
             margin-bottom: 15px;
             color: var(--text-muted);
-            word-wrap: break-word; /* Ajuda a não quebrar o layout no celular */
+            word-wrap: break-word;
         }
 
         ul {
@@ -97,6 +97,7 @@
 
         li {
             margin-bottom: 8px;
+            word-wrap: break-word;
         }
 
         a {
@@ -126,15 +127,16 @@
             background-color: var(--code-bg);
             padding: 15px;
             border-radius: 6px;
-            overflow-x: auto;
+            overflow-x: auto; /* Cria barra de rolagem apenas no código */
+            max-width: 100%;
             margin-bottom: 20px;
-            max-width: 100%; /* Garante que o bloco não force a tela a crescer */
         }
 
         pre code {
             background-color: transparent;
             padding: 0;
-            white-space: pre-wrap; /* Força a quebra de linha do código em telas muito pequenas */
+            white-space: pre; /* Garante que o scroll do pre funcione */
+            word-wrap: normal;
         }
 
         .alert-box {
@@ -169,11 +171,11 @@
         footer {
             background-color: var(--cinza-escuro);
             display: flex;
-            justify-content: flex-end; /* Alinha o conteúdo à direita */
+            justify-content: flex-end;
             align-items: center;
-            padding: 15px 20px; /* Padding levemente reduzido para telas menores */
-            margin-top: auto;
+            padding: 15px 20px;
             width: 100%;
+            flex-shrink: 0; /* Garante que o footer não seja espremido */
         }
 
         .footer-logo {
@@ -186,12 +188,10 @@
 
 <div class="container">
     <header>
-        <!-- Imagem da Competição Original -->
         <img src="https://github.com/user-attachments/assets/510cbaa5-a579-46a3-94c6-2cee11f60a7c" alt="Codenames AI Competition Banner" class="hero-image">
 
         <h1>Codenames AI Competition (2026) - DCC WEEK</h1>
         
-        <!-- Parágrafo de introdução atualizado e mais direto -->
         <p>Seja bem-vindo à competição Codenames da DCC Week 2026. Esta competição visa a criação de dois agentes de IA, o codemaster e o guesser, para jogar o jogo Codenames. O grande vencedor levará um prêmio de uma bolsa de estudos!</p>
         
         <p>Esta competição é uma adaptação local da competição original do desafio da <a href="https://cog2026.org/competitions#codenames" target="_blank">IEEE CoG 2026</a>.</p>
@@ -292,15 +292,14 @@ cd Codenames_GPT</code></pre>
             </ul>
             
             <div style="text-align: center; margin-top: 30px;">
-                <a href="https://forms.gle/ak4MW6ZzEff5QdrL8" target="_blank" class="btn-submit">Realizar Inscrição no Google Forms</a>
+                <a href="https://dcc.ufmg.br/wp-content/uploads/2020/12/logos_institucionais_dcc_fundo_escuro.png" target="_blank" class="btn-submit">Realizar Inscrição no Google Forms</a>
             </div>
         </section>
     </main>
 </div>
 
-<!-- Rodapé -->
 <footer>
-    <img src="https://dcc.ufmg.br/wp-content/uploads/2020/12/logos_institucionais_dcc_fundo_escuro.png" alt="Logo DCC UFMG" class="footer-logo" onerror="this.src='dcc-logo.png'; this.alt='DCC Logo'">
+    <img src="https://dcc.ufmg.br/wp-content/uploads/2021/10/logo-dcc-ufmg.png" alt="Logo DCC UFMG" class="footer-logo" onerror="this.src='dcc-logo.png'; this.alt='DCC Logo'">
 </footer>
 
 </body>
