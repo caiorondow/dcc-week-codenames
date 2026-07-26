@@ -41,6 +41,28 @@
             padding: 40px 20px;
         }
 
+        /* Novos estilos para o cabeçalho e imagens */
+        .header-logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .header-logos img {
+            max-height: 70px;
+            object-fit: contain;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
         header {
             margin-bottom: 40px;
             text-align: center;
@@ -116,6 +138,7 @@
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 0 6px 6px 0;
+            text-align: left;
         }
 
         .btn-submit {
@@ -142,18 +165,36 @@
 
 <div class="container">
     <header>
-        <h1>Codenames AI Competition (2026) - DCC WEEK</h1>
-        <p>Esta competição foca no desenvolvimento de agentes autônomos (IA) para jogar o jogo de tabuleiro "Codenames". O evento é uma adaptação local do desafio da <a href="https://cog2026.org/competitions#codenames" target="_blank">IEEE CoG 2026</a>.</p>
-        
-        <div class="alert-box">
-            <strong>Atenção:</strong> Como utilizamos o framework oficial, a documentação completa, regras detalhadas e exemplos de código encontram-se no repositório original: 
-            <a href="https://github.com/stepmat/Codenames_GPT" target="_blank">Codenames_GPT no GitHub</a>.
+        <!-- Logos DCC e UFMG (Substitua os links pelas imagens locais se necessário) -->
+        <div class="header-logos">
+            <img src="https://dcc.ufmg.br/wp-content/uploads/2020/12/logos_institucionais_dcc_fundo_escuro.png" alt="Logo DCC UFMG" onerror="this.src='dcc-logo.png'; this.alt='DCC Logo'">
         </div>
+
+        <!-- Imagem da Competição Original -->
+        <img src="https://github.com/user-attachments/assets/510cbaa5-a579-46a3-94c6-2cee11f60a7c" alt="Codenames AI Competition Banner" class="hero-image">
+
+        <h1>Codenames AI Competition (2026) - DCC WEEK</h1>
+        <p>Seja bem-vindo à competição Codenames da DCC Week 2026. Esta competição visa o desenvolvimento de agentes autônomos (IA) capazes de compreender linguagem natural, criar comunicação semântica e entender os múltiplos significados das palavras. O grande vencedor levará um prêmio de uma bolsa de estudos!</p>
+        <p>Esta competição é uma adaptação local da competição original do desafio da <a href="https://cog2026.org/competitions#codenames" target="_blank">IEEE CoG 2026</a>.</p>
     </header>
 
     <main>
+        <section class="section-blue">
+            <h2>Sobre a Competição Original</h2>
+            <p>A competição matriz desenvolve um benchmark para testar agentes (frequentemente baseados em LLMs como GPT-4, Llama, etc.) no clássico jogo "Codenames". A estrutura original é dividida em duas modalidades (tracks):</p>
+            <ul>
+                <li><strong>Single Team (Time Único):</strong> Avalia uma única equipe tentando adivinhar todas as suas palavras no menor número de turnos possível.</li>
+                <li><strong>Two Teams (Dois Times):</strong> Jogo com regras completas onde duas equipes (Vermelha e Azul) competem simultaneamente para descobrir suas palavras primeiro, com base na taxa de vitórias.</li>
+            </ul>
+            
+            <div class="alert-box">
+                <strong>Para mais detalhes:</strong> Como utilizamos o framework oficial, a documentação completa da competição original, regras detalhadas e exemplos de código encontram-se no repositório oficial: 
+                <a href="https://github.com/stepmat/Codenames_GPT" target="_blank">Codenames_GPT no GitHub</a>.
+            </div>
+        </section>
+
         <section class="section-green">
-            <h2>Como funciona o Codenames</h2>
+            <h2>Como funciona o jogo Codenames</h2>
             <p>O Codenames é um jogo de dedução e associação de palavras. No tabuleiro há 25 palavras distribuídas. As equipes (Vermelha e Azul) possuem dois papéis cada:</p>
             <ul>
                 <li><strong>Codemaster (Mestre Espião):</strong> Sabe exatamente a qual equipe cada palavra do tabuleiro pertence (além de cartas neutras e o Assassino). A função dele é dar uma dica de apenas <strong>uma palavra</strong> acompanhada de um número, conectando duas ou mais palavras do seu time (ex: <code>animal, 2</code>).</li>
