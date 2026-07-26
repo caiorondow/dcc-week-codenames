@@ -18,6 +18,9 @@
             --text-main: #333333;
             --text-muted: #555555;
             --code-bg: #f4f5f7;
+            
+            /* Cor solicitada para o rodapé */
+            --cinza-suvinil: #d1d5d6; 
         }
 
         * {
@@ -33,27 +36,19 @@
             line-height: 1.6;
             border-top: 8px solid;
             border-image: linear-gradient(to right, var(--pastel-red), var(--pastel-blue), var(--pastel-green)) 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
+            flex: 1; /* Faz o container empurrar o footer para o final da página */
         }
 
-        /* Novos estilos para o cabeçalho e imagens */
-        .header-logos {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .header-logos img {
-            max-height: 70px;
-            object-fit: contain;
-        }
-
+        /* Estilo da imagem no cabeçalho */
         .hero-image {
             width: 100%;
             max-height: 300px;
@@ -159,17 +154,26 @@
             background-color: #9ee6b1;
             text-decoration: none;
         }
+
+        /* Estilos do Rodapé */
+        footer {
+            background-color: var(--cinza-suvinil);
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .footer-logo {
+            max-height: 80px;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <!-- Logos DCC e UFMG (Substitua os links pelas imagens locais se necessário) -->
-        <div class="header-logos">
-            <img src="https://dcc.ufmg.br/wp-content/uploads/2020/12/logos_institucionais_dcc_fundo_escuro.png" alt="Logo DCC UFMG" onerror="this.src='dcc-logo.png'; this.alt='DCC Logo'">
-        </div>
-
         <!-- Imagem da Competição Original -->
         <img src="https://github.com/user-attachments/assets/510cbaa5-a579-46a3-94c6-2cee11f60a7c" alt="Codenames AI Competition Banner" class="hero-image">
 
@@ -278,6 +282,11 @@ cd Codenames_GPT</code></pre>
         </section>
     </main>
 </div>
+
+<!-- Rodapé exclusivo com fundo cinza e logo do DCC -->
+<footer>
+    <img src="https://dcc.ufmg.br/wp-content/uploads/2020/12/logos_institucionais_dcc_fundo_escuro.png" alt="Logo DCC UFMG" class="footer-logo" onerror="this.src='dcc-logo.png'; this.alt='DCC Logo'">
+</footer>
 
 </body>
 </html>
